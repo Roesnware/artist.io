@@ -1,0 +1,92 @@
+* {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+input {
+    border-radius: 3px;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px;
+    width: 100%;
+    font-size: large;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 38px 3px grey;
+    height: 550px;
+    width: 1100px;
+    margin: 2rem;
+    padding: 1rem;
+    background-image: url('../../assets/naruto-sliding-bg.png');
+    background-size: cover;
+}
+
+.box {
+    display: flex;
+    width: 1100px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8rem;
+    width: 550px;
+}
+
+.text-with-bg-orange {
+    color: #C67B1B !important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.button {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 5px;
+    border-radius: 13px;
+    text-align: center;
+    font-size: 20px;
+    color: whitesmoke;
+    outline: solid 1px whitesmoke;
+    background-color: #C67B1B;
+    box-shadow: 0px 10px 32px 1px black;
+}
+
+.button:hover {
+    transform: translateY(1px);
+    cursor: grab;
+}
+
+#header {
+    font-size: 30px;
+    margin: 1rem;
+}
+
+#content-text {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.introText {
+    margin: 1rem;
+}
+
+#background-div-orange {
+    height: 550px;
+    padding: 1rem;
+    margin: -1rem;
+    width: 550px;
+    border-radius: 13px 0px 0px 13px;
+    background-color: #C67B1B;
+}

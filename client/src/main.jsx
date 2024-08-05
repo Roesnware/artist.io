@@ -5,7 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import pages 
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
-import Account from './pages/Account.jsx';
+import Account from './pages/Account/Account.jsx';
+import ErrorPage from './pages/ErrorPage.jsx'
 
 // define router paths
 const router = createBrowserRouter([
@@ -16,10 +17,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Account />
       }, {
         path: '/login',
-        element: <Account />
+        element: <Home />
       }
     ]
   },
