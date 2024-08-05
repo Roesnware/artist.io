@@ -1,0 +1,18 @@
+.button {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 5px;
+    border-radius: 13px;
+    text-align: center;
+    font-size: 20px;
+    color: whitesmoke;
+    outline: solid 1px whitesmoke;
+    box-shadow: 0px 10px 32px 1px black;
+}
+
+.button:hover {
+    transform: translateY(1px);
+    cursor: grab;
+}
