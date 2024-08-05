@@ -56,7 +56,7 @@ const Account = () => {
           {showSignInButton && <Button text='SIGN IN' onClick={handleSignInClick} />}
         </div>
         <div className='content'>
-          <div id='header'>{createAccountHeaderText}</div>
+          <div id='header' className='text-no-bg'>{createAccountHeaderText}</div>
           {showEmailInput && <input placeholder="Email" id='content-text' value={email} onChange={(e) => setEmail(e.target.value)} />}
           <input placeholder="Username" id='content-text' value={username} onChange={(e) => setUsername(e.target.value)} />
           <input placeholder="Password" id='content-text' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
