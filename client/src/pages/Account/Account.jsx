@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import './Account.css';
 import Button from '../../components/Button/Button.jsx';
+import Header from '../../components/Header/Header.jsx';
+import Footer from '../../components/Footer/Footer.jsx';
 
 // compopnent 
 const Account = () => {
@@ -47,22 +49,26 @@ const Account = () => {
 
   // return 
   return (
-    <div className="container">
-      <div className={`sliding-div ${slide ? 'slide-right' : ''}`}></div>
-      <div className='box'>
-        <div className='content'>
-          <div id='header' className='text-no-bg'>{headerText}</div>
-          <div id='content-text' className='introText text-no-bg'>{signInText}</div>
-          {showSignInButton && <Button text='SIGN IN' onClick={handleSignInClick} />}
-        </div>
-        <div className='content'>
-          <div id='header' className='text-no-bg'>{createAccountHeaderText}</div>
-          {showEmailInput && <input placeholder="Email" id='content-text' value={email} onChange={(e) => setEmail(e.target.value)} />}
-          <input placeholder="Username" id='content-text' value={username} onChange={(e) => setUsername(e.target.value)} />
-          <input placeholder="Password" id='content-text' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <Button text={signUpButtonText} onClick={slide ? handleSignInClick : handleSignUpClick} />
+    <div>
+      <Header />
+      <div className="container">
+        <div className={`sliding-div ${slide ? 'slide-right' : ''}`}></div>
+        <div className='box'>
+          <div className='content'>
+            <div id='header' className='text-no-bg'>{headerText}</div>
+            <div id='content-text' className='introText text-no-bg'>{signInText}</div>
+            {showSignInButton && <Button text='SIGN IN' onClick={handleSignInClick} />}
+          </div>
+          <div className='content'>
+            <div id='header' className='text-no-bg'>{createAccountHeaderText}</div>
+            {showEmailInput && <input placeholder="Email" id='content-text' value={email} onChange={(e) => setEmail(e.target.value)} />}
+            <input placeholder="Username" id='content-text' value={username} onChange={(e) => setUsername(e.target.value)} />
+            <input placeholder="Password" id='content-text' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <Button text={signUpButtonText} onClick={slide ? handleSignInClick : handleSignUpClick} />
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
