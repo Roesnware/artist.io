@@ -1,0 +1,44 @@
+import './Dashboard.css';
+import Background from '../../components/Background/Background';
+import Header from '../../components/Header/Header';
+
+const Dashboard = () => {
+  return (
+    <div className='flexContainer'>
+      <Header />
+      <Background />
+      <div className='sections'>
+        <div>
+          <div>
+            <div className='flexSections'>
+              <div>Your Likes</div>
+              <a>View all</a>
+            </div>
+            <div></div>
+          </div>
+          <div className='flexSections'>
+            <div>Recently Watched</div>
+            <a>View all</a>
+          </div>
+          <div></div>
+        </div>
+        <div>
+          <div className='flexSections'>
+            <div>Recently Read</div>
+            <a>View all</a>
+          </div>
+          <div></div>
+        </div>
+        <div>
+          <div className='flexSections'>
+            <div>Recently Searched</div>
+            <a>View all</a>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  )
+};
+
+export default Dashboard;

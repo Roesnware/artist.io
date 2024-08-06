@@ -7,9 +7,10 @@ import './main.css'
 
 // import pages 
 import App from './App.jsx';
-import Home from './pages/Home.jsx';
+import Home from './pages/Home/Home.jsx';
 import Account from './pages/Account/Account.jsx';
-import ErrorPage from './pages/ErrorPage.jsx'
+import ErrorPage from './pages/Error/ErrorPage.jsx';
+import Dashboard from './pages/Dashboard/Dashboard.jsx';
 
 // define router paths
 const router = createBrowserRouter([
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Account />
+      }, {
+        path: '/dashboard',
+        element: <Dashboard />
       }
     ]
   },
