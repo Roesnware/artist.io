@@ -1,0 +1,33 @@
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: whitesmoke;
+}
+
+.navList {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    align-items: center;
+}
+
+.navList a:hover {
+    transform: translateY(-1px);
+    text-shadow: 1px 1px grey;
+}
+
+#sign-up-btn {
+    border-radius: 1rem;
+    border: 1px solid whitesmoke;
+    padding: 5px;
+}
+
+#nav-text a {
+    font-family: 'Courier New', Courier, monospace !important;
+    padding: 7px;
+    margin: 1rem;
+    text-decoration: none;
+    color: whitesmoke;
+}

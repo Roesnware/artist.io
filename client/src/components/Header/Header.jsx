@@ -2,7 +2,16 @@ import './Header.css'
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <div className='navContainer' id='nav-text'>
+        <a>logo</a>
+        <div className='navList'>
+            <a href='/home'>Home</a>
+            <a href='/dashboard'>Dashboard</a>
+            <a target='/blank' href='https://9animetv.to/'>Watch</a>
+            <a target='/blank' href='https://manganato.com/'>Read</a>
+            <a href='/signup' id='sign-up-btn'>Sign up</a>
+        </div>
+    </div>
   )
 }
 
