@@ -4,6 +4,8 @@
     align-items: center;
     width: 100%;
     color: whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    margin-bottom: 2rem;
 }
 
 .navList {
@@ -30,4 +32,17 @@
     margin: 1rem;
     text-decoration: none;
     color: whitesmoke;
+}
+
+#logo-text {
+    font-weight: bold;
+    font-size: larger;
+}
+
+#logo-special-text {
+    display: inline;
+    color: #ff351b;
+    align-content: center;
+    font-weight: lighter;
+    font-family: 'Courier New', Courier, monospace;
 }

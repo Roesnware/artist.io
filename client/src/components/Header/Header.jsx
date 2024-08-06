@@ -3,7 +3,7 @@ import './Header.css'
 const Header = () => {
   return (
     <div className='navContainer' id='nav-text'>
-        <a>logo</a>
+        <a id='logo-text'>Ani<p id='logo-special-text'>Flix</p>.io</a>
         <div className='navList'>
             <a href='/home'>Home</a>
             <a href='/dashboard'>Dashboard</a>
