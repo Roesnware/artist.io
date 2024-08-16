@@ -2,6 +2,7 @@ import './Home.css';
 import Background from '../../components/Background/Background';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer.jsx';
+import Card from '../../components/Card/Card.jsx';
 
 const Home = () => {
   return (
@@ -15,7 +16,12 @@ const Home = () => {
               <div>Featured Anime</div>
               <a>View all</a>
             </div>
-            <div></div>
+            <div className='carousel'>
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+            </div>
           </div>
           <div className='flexSections'>
             <div>Featured Manga</div>
