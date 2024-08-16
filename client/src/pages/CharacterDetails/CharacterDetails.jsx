@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Footer from '../../components/Footer/Footer.jsx'
-import Header from '../../components/Header/Header.jsx'
+import { useParams, Link } from 'react-router-dom';
+import clansData from '../../utils/clans.js';
+import Footer from '../../components/Footer/Footer.jsx';
+import Header from '../../components/Header/Header.jsx';
 import './CharacterDetails.css';
 
 const baseURL = 'https://dattebayo-api.onrender.com';
@@ -9,13 +10,39 @@ const baseURL = 'https://dattebayo-api.onrender.com';
 const CharacterDetails = () => {
   const { characterId } = useParams();
   const [character, setCharacter] = useState(null);
+  const [relatedCharacters, setRelatedCharacters] = useState([]);
 
   useEffect(() => {
+    // Fetch the main character's details
     fetch(`${baseURL}/characters/${characterId}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setCharacter(data);
+
+        // Find the clan data for the current character
+        const characterClan = clansData.find(clan => clan.name === data.personal?.clan);
+
+        if (characterClan) {
+          // Fetch related characters by clan
+          const fetchRelatedCharacters = characterClan.characters.map(id =>
+            fetch(`${baseURL}/characters/${id}`).then(response => response.json())
+          );
+
+          // Resolve all the promises
+          Promise.all(fetchRelatedCharacters)
+            .then(characters => {
+              // Filter out the current character and characters without an image
+              const filteredCharacters = characters
+                .filter(relatedCharacter =>
+                  relatedCharacter.id !== parseInt(characterId) &&
+                  relatedCharacter.images && relatedCharacter.images.length > 0
+                )
+                .slice(0, 10); // Limit to the first 10 characters
+
+              setRelatedCharacters(filteredCharacters);
+            })
+            .catch(error => console.error('Error fetching related characters:', error));
+        }
       })
       .catch(error => console.error('Error fetching character details:', error));
   }, [characterId]);
@@ -30,17 +57,44 @@ const CharacterDetails = () => {
       <div className='characterPage'>
         <div className='character-detail-card'>
           <div className='character-header'>
-            <img src={character.images[0]} alt={character.name} className='character-image' />
+            {character.images?.[0] && (
+              <img src={character.images[0]} alt={character.name} className='character-image' />
+            )}
             <div className='character-info'>
               <h2 id='character-name'>{character.name}</h2>
             </div>
           </div>
           <div className='character-details'>
-            <p><strong>Clan:</strong> {character.personal.clan || 'N/A'}</p>
-            <p><strong>Village:</strong> {character.personal.affiliation[0] || 'N/A'}</p>
-            <p><strong>Nature Type:</strong> {character.natureType.join(', ') || 'N/A'}</p>
-            <p><strong>Jutsu:</strong> {character.jutsu.join(', ') || 'N/A'}</p>
+            {character.personal?.clan && (
+              <p><strong>Clan:</strong> {character.personal.clan}</p>
+            )}
+            {character.personal?.affiliation?.[0] && (
+              <p><strong>Village:</strong> {character.personal.affiliation[0]}</p>
+            )}
+            {character.natureType?.length > 0 && (
+              <p><strong>Nature Type:</strong> {character.natureType.join(', ')}</p>
+            )}
+            {character.jutsu?.length > 0 && (
+              <p><strong>Jutsu:</strong> {character.jutsu.join(', ')}</p>
+            )}
           </div>
+        </div>
+        <div className='characterSuggestions'>
+          <h3>Related Characters</h3>
+          <ul className='related-characters-list'>
+            {relatedCharacters.map((relatedCharacter) => (
+              <li className='relatedEach' key={relatedCharacter.id}>
+                <Link to={`/characters/${relatedCharacter.id}`} className='related-link'>
+                  <div className='relatedContainer'>
+                    <p className='relatedName'>{relatedCharacter.name}</p>
+                    {relatedCharacter.images?.[0] && (
+                      <img className='relatedImage' src={relatedCharacter.images[0]} alt={relatedCharacter.name} />
+                    )}
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <Footer />

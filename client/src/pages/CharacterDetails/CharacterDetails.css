@@ -10,12 +10,52 @@
     background-size: cover;
     position: relative;
     overflow: hidden;
+    margin-top: 2rem;
+}
+
+.related-link {
+    color: var(--light);
+}
+
+.characterSuggestions {
+    color: var(--light);
+    text-align: center;
+}
+
+.relatedContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24rem;
+    padding: 1rem;
+}
+
+.relatedEach {
+    background-color: rgba(128, 128, 128, 0.068);
+    margin: 1rem;
+}
+
+.relatedImage {
+    height: 8rem;
+    width: 12rem;
+}
+
+.relatedName {
+    padding: 1rem;
+    width: 10rem;
+}
+
+.related-characters-list li {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
 }
 
 .characterPage {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
     padding: 5rem;
     height: 100%;
 }

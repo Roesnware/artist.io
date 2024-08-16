@@ -13,7 +13,7 @@ body {
   padding: 0;
 }
 
-a {
+a, ol, ul, li {
   text-decoration: none;
 }
 
