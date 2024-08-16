@@ -1,5 +1,4 @@
 import './Dashboard.css';
-import Background from '../../components/Background/Background';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer.jsx';
 
@@ -7,7 +6,6 @@ const Dashboard = () => {
   return (
     <div className='flexContainer'>
       <Header />
-      <Background />
       <div className='sections'>
         <div>
           <div>

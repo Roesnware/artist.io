@@ -3,7 +3,6 @@ import './Account.css';
 import Button from '../../components/Button/Button.jsx';
 import Header from '../../components/Header/Header.jsx';
 import Footer from '../../components/Footer/Footer.jsx';
-import Background from '../../components/Background/Background.jsx';
 
 const Account = () => {
   const [slide, setSlide] = useState(false);
@@ -44,7 +43,6 @@ const Account = () => {
 
   return (
     <div className='flexBox'>
-      <Background gradient={gradient} />
       <Header />
       <div className="container">
         <div className={`sliding-div ${slide ? 'slide-right' : ''}`}></div>

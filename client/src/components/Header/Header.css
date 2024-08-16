@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
     color: whitesmoke;
-    margin-bottom: 2rem;
+    padding: 1rem;
 }
 
 .navList {
@@ -24,8 +24,14 @@
 }
 
 .navList a:hover, .navList a.active {
-    color: red;
+    color:  #ff351b;
     transform: scale(1.1);
+}
+
+.navList #sign-up-btn:hover, .navList #sign-up-btn.active{
+    color: #ff351b;
+    transform: scale(1.1);
+    border-color: #ff351b;
 }
 
 #sign-up-btn {
@@ -36,7 +42,8 @@
 
 #logo-text {
     font-weight: lighter;
-    font-size: larger;
+    font-size: 1.5rem;
+    padding-left: 3rem;
 }
 
 #logo-special-text {
@@ -45,4 +52,5 @@
     align-content: center;
     font-weight: lighter;
     font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
 }

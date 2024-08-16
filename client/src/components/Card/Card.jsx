@@ -1,18 +1,19 @@
 import './Card.css'
 
-const Card = () => {
+const Card = ({ title, imageUrl }) => {
   return (
-    <>
-        <a className='card' href='#'>
-            <div className='cardContent'>
-                <figure id='card-image'/>
-            </div>
-            <div className='cardHeader'>
-                <h2 id='card-title'>Naruto</h2>
-            </div>
-        </a>
-    </>
-  )
+    <div className='card'>
+      <div className='cardContent'>
+        <figure 
+          id='card-image'
+          style={{ backgroundImage: `url(${imageUrl})`, height: '11.2rem', backgroundSize: 'cover', width: '15rem', backgroundPosition: 'center' }} 
+        />
+      </div>
+      <div className='cardHeader'>
+        <h3 id='card-title'>{title}</h3>
+      </div>
+    </div>
+  );
 }
 
 export default Card;

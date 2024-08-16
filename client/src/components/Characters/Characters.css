@@ -1,0 +1,41 @@
+.characters-section {
+    padding-right: 5rem;
+    margin: 2rem;
+}
+
+.carousel {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 1rem;
+    width: 100%;
+}
+
+.card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+    margin-right: 1rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-color: red;
+}
+
+.flexSections, .flexSections a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: var(--light);
+}
+
+.flexSections a:hover {
+    color: var(--red);
+}
+
+#section-title {
+    text-decoration: underline;
+    font-weight: bold;
+}

@@ -1,8 +1,4 @@
 /* element selectors */
-* {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
 input {
     border-radius: 3px;
     padding: 10px;

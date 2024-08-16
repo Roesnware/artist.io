@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className='navContainer' id='nav-text'>
       <a id='logo-text'>
-        Ani<p id='logo-special-text'>Flix</p>.io
+        Datte<span id='logo-special-text'>Bayo</span>.io
       </a>
       <div className='navList'>
         <a href='/' className={location.pathname === '/' ? 'active' : ''}>
@@ -16,10 +16,10 @@ const Header = () => {
         <a href='/dashboard' className={location.pathname === '/dashboard' ? 'active' : ''}>
           Dashboard
         </a>
-        <a target='/blank' href='https://9animetv.to/' className={location.pathname === '/watch' ? 'active' : ''}>
+        <a target='/blank' href='https://aniwave.to/filter?keyword=naruto' className={location.pathname === '/watch' ? 'active' : ''}>
           Watch
         </a>
-        <a target='/blank' href='https://manganato.com/' className={location.pathname === '/read' ? 'active' : ''}>
+        <a target='/blank' href='https://manganato.com/search/story/naruto' className={location.pathname === '/read' ? 'active' : ''}>
           Read
         </a>
         <a href='/signup' id='sign-up-btn' className={location.pathname === '/signup' ? 'active' : ''}>

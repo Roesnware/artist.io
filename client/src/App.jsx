@@ -3,12 +3,11 @@ import './App.css';
 
 // import router 
 import { Outlet } from 'react-router-dom';
-import NeonBackground from './components/Background/Background.jsx';
 
 // app component
 function App() {
   return (
-      <div className='page'>
+      <div className='page background'>
         <div>
           <Outlet />
         </div>

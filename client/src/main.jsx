@@ -1,18 +1,12 @@
-// import DOM and router 
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-// import css 
-import './main.css'
-
-// import pages 
 import App from './App.jsx';
 import Home from './pages/Home/Home.jsx';
 import Account from './pages/Account/Account.jsx';
-import ErrorPage from './pages/Error/ErrorPage.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
+import ErrorPage from './pages/Error/ErrorPage.jsx';
+import CharacterDetails from './pages/CharacterDetails/CharacterDetails.jsx';
 
-// define router paths
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,16 +16,21 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
-      }, {
+      }, 
+      {
         path: '/signup',
         element: <Account />
-      }, {
+      }, 
+      {
         path: '/dashboard',
         element: <Dashboard />
+      },
+      {
+        path: '/characters/:characterId',
+        element: <CharacterDetails />
       }
     ]
   },
 ]);
 
-// mount router
 ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router} />);
