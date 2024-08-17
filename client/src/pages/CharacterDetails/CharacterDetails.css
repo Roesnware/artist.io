@@ -97,6 +97,42 @@
     color: var(--light);
 }
 
+.blog-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-top: 1px solid var(--light);
+    background-color: rgba(128, 128, 128, 0.068);
+}
+
+.blog-section h3 {
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.blog-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.blog-section li {
+    margin-bottom: 1rem;
+}
+
+.blog-section h4 {
+    margin: 0;
+    color: var(--red);
+}
+
+.blog-section p {
+    margin: 0.5rem 0;
+    color: var(--light);
+}
+
+.blog-section a {
+    color: var(--light);
+    text-decoration: underline;
+}
+
 #character-name {
     padding-left: 15rem;
 }

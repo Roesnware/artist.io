@@ -25,7 +25,7 @@ const Characters = () => {
       <div className='flexSections'>
         <div id='section-title'>Featured Anime Characters</div>
         <a href='#' onClick={() => setShowAll(!showAll)}>
-          {showAll ? 'Show Less' : 'View All'}
+          {showAll ? 'Show Less' : 'View More'}
         </a>
       </div>
       <div className='carousel'>

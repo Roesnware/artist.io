@@ -11,6 +11,7 @@ const CharacterDetails = () => {
   const { characterId } = useParams();
   const [character, setCharacter] = useState(null);
   const [relatedCharacters, setRelatedCharacters] = useState([]);
+  const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
     // Fetch the main character's details
@@ -19,33 +20,47 @@ const CharacterDetails = () => {
       .then(data => {
         setCharacter(data);
 
-        // Find the clan data for the current character
-        const characterClan = clansData.find(clan => clan.name === data.personal?.clan);
-
-        if (characterClan) {
-          // Fetch related characters by clan
-          const fetchRelatedCharacters = characterClan.characters.map(id =>
-            fetch(`${baseURL}/characters/${id}`).then(response => response.json())
-          );
-
-          // Resolve all the promises
-          Promise.all(fetchRelatedCharacters)
-            .then(characters => {
-              // Filter out the current character and characters without an image
-              const filteredCharacters = characters
-                .filter(relatedCharacter =>
-                  relatedCharacter.id !== parseInt(characterId) &&
-                  relatedCharacter.images && relatedCharacter.images.length > 0
-                )
-                .slice(0, 10); // Limit to the first 10 characters
-
-              setRelatedCharacters(filteredCharacters);
-            })
-            .catch(error => console.error('Error fetching related characters:', error));
-        }
+        fetch('/api/generate-blog-post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            characterName: data.name,
+            clanName: data.personal?.clan
+          }),
+        })
+          .then(response => response.json())
+          .then(blogPost => setBlogPost(blogPost))
+          .catch(error => console.error('Error fetching blog post:', error));
       })
       .catch(error => console.error('Error fetching character details:', error));
   }, [characterId]);
+
+  // Find the clan data for the current character
+  const characterClan = clansData.find(clan => clan.name === data.personal?.clan);
+
+  if (characterClan) {
+    // Fetch related characters by clan
+    const fetchRelatedCharacters = characterClan.characters.map(id =>
+      fetch(`${baseURL}/characters/${id}`).then(response => response.json())
+    );
+
+    // Resolve all the promises
+    Promise.all(fetchRelatedCharacters)
+      .then(characters => {
+        // Filter out the current character and characters without an image
+        const filteredCharacters = characters
+          .filter(relatedCharacter =>
+            relatedCharacter.id !== parseInt(characterId) &&
+            relatedCharacter.images && relatedCharacter.images.length > 0
+          )
+          .slice(0, 10); // Limit to the first 10 characters
+
+        setRelatedCharacters(filteredCharacters);
+      })
+      .catch(error => console.error('Error fetching related characters:', error));
+  }
 
   if (!character) {
     return <div>Loading...</div>;
@@ -79,6 +94,7 @@ const CharacterDetails = () => {
             )}
           </div>
         </div>
+
         <div className='characterSuggestions'>
           <h3>Related Characters</h3>
           <ul className='related-characters-list'>
@@ -96,7 +112,31 @@ const CharacterDetails = () => {
             ))}
           </ul>
         </div>
+
+        <div className='blog-section'>
+          <h3>Related Blog Posts</h3>
+          {blogPosts.length > 0 ? (
+            <ul>
+              {blogPosts.map((post, index) => (
+                <li key={index}>
+                  <h4>{post.title}</h4>
+                  <p>{post.description}</p>
+                  <Link to={post.link}>Read more</Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No blog posts found for this character or clan.</p>
+          )}
+        </div>
       </div>
+      {blogPost && (
+        <div className="ai-blog-post">
+          <h3>{blogPost.title}</h3>
+          <p>{blogPost.description}</p>
+          <a href={blogPost.link}>Read More</a>
+        </div>
+      )}
       <Footer />
     </>
   );
